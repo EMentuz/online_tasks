@@ -1,0 +1,171 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Устанавливаем основное направление флекс-контейнера */
+    min-height: 100vh; /* Делаем минимальную высоту равной высоте видимой области браузера */
+     margin-bottom: 80px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #66ccff;
+    color: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #33b5e5 3px solid;
+}
+
+header h1 {
+    float: left;
+    padding-left: 20px;
+}
+
+
+
+main {
+    padding: 20px;
+    flex-grow: 1; /* Растягиваем основное содержимое, чтобы оно занимало всю доступную высоту */
+}
+
+
+.login-form {
+    max-width: 400px; /* Максимальная ширина формы */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-form p {
+    text-align: center;
+    margin-bottom: 20px; /* Добавляем отступ снизу */
+}
+
+.login-form table {
+    width: 100%;
+}
+
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #66ccff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: #4fa3d1;
+}
+footer {
+    background: #66ccff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    flex-shrink: 0; /* Запрещаем уменьшение футера */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+nav ul {
+     display: inline-block; /* Используем inline-block для элементов меню */
+    text-align: left; /* Выравниваем элементы меню по левому краю */
+    padding-left: 20px; /* Добавляем отступ слева для выравнивания */
+}
+
+nav ul li {
+     display: inline-block; /* Оставляем элементы меню в строке */
+    list-style: none;
+    padding: 0 10px;
+}
+
+
+/* Стили для кнопки выхода */
+nav ul {
+    display: flex; /* Используем flex-контейнер */
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    background-color: #66ccff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #4fa7ff;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.registration-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.comment-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1 style="font-size: 24px; color: #333;">Добро пожаловать {{ new_user.first_name }}!</h1>
+        <p style="font-size: 16px; color: #666;">Ваша учетная запись успешно создана. Теперь вы можете <a href="{% url 'login' %}" style="color: #007bff; text-decoration: none;">войти</a>.</p>
+    </div>
+{% endblock %}

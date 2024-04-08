@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ task.name }}</h1>
+    <p>Описание: {{ task.description }}</p>
+    <p>Дата создания: {{ task.date_of_creation }}</p>
+    <p>Исполнитель: {{ task.executor }}</p>
+    <p>Статус: {{ task.status }}</p>
+    <p>Статус: {{ task.date_of_completion }}</p>
+    <!-- Другие дополнительные сведения о задаче -->
+
+    <h2>Комментарии:</h2>
+    <div class="comments">
+        {% for comment in comments %}
+            <div class="comment-box">
+                <p><strong>Пользователь:</strong> {{ comment.user }}</p>
+                <p><strong>Дата комментария:</strong> {{ comment.date_of_creation }}</p>
+                <p><strong>Комментарий:</strong> {{ comment.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+     <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Оставить комментарий</button>
+        </form>
+{% endblock %}

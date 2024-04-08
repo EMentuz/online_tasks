@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <h1>Список задач:</h1>
+    <ul>
+        {% if user.is_authenticated %}
+            <h2>В ожидании:</h2>
+            {% for task_await in tasks_await %}
+                <li><a href="{% url 'task_detail' task_await.id %}">{{ task_await.name }}</a> - {{ task_await.date_of_creation }}</li>
+            {% endfor %}
+            <h2>В процессе:</h2>
+            {% for task_pr in tasks_pr %}
+                <li><a href="{% url 'task_detail' task_pr.id %}">{{ task_pr.name }}</a> - {{ task_pr.date_of_creation }}</li>
+            {% endfor %}
+            <h2>Завершено:</h2>
+            {% for task_done in tasks_done %}
+                <li><a href="{% url 'task_detail' task_done.id %}">{{ task_done.name }}</a> - {{ task_done.date_of_creation }}</li>
+            {% endfor %}
+        {% else %}
+            <h2>В ожидании:</h2>
+            {% for task_await in tasks_await %}
+                <li>{{ task_await.name }}</li>
+            {% endfor %}
+            <h2>В процессе:</h2>
+            {% for task_pr in tasks_pr %}
+                <li>{{ task_pr.name }}</li>
+            {% endfor %}
+
+            <h2>Завершено:</h2>
+            {% for task_done in tasks_done %}
+                <li>{{ task_done.name }}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+
+{% endblock %}

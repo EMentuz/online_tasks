@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Онлайн-платформы для управления задачами{% endblock %}</title>
+    <!-- Подключение стилей CSS -->
+    <link rel="stylesheet" href="{% static 'styles5.css' %}">
+</head>
+<body>
+   <header>
+    <div class="container">
+        <h1>Онлайн-платформы для управления задачами</h1>
+        <nav>
+            <ul>
+                <li><a href="/" class="nav-btn">Главная</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'my_tasks' %}" class="nav-btn">Мои задачи</a></li>
+
+                    <li><a href="{% url 'add_task' %}" class="nav-btn">Добавить задачу</a></li>
+                    <li class="logout">
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-btn">Выйти</button>
+                        </form>
+                    </li>
+
+                {% else %}
+
+                    <li><a href="{% url 'login' %}" class="nav-btn">Войти</a> | <a href="{% url 'register' %}" class="nav-btn">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {% now "Y" %} Онлайн-платформы для управления задачами. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
