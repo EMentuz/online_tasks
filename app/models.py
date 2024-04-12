@@ -18,9 +18,8 @@ class Task(models.Model):
     # id = models.BigIntegerField(primary_key=True, auto_created=True)
     name = models.CharField(blank=False, null=False, max_length=100, verbose_name="Название", unique=True)
     description = models.TextField(blank=False, null=False, max_length=500, verbose_name="Описание")
-    executor = models.CharField(blank=False, null=False, max_length=100, choices=user_choices, verbose_name="Исполнитель")
-    # executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks', verbose_name="Исполнитель")
-
+    # executor = models.CharField(blank=False, null=False, max_length=100, choices=user_choices, verbose_name="Исполнитель")
+    executor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks', verbose_name="Исполнитель")
     status = models.CharField(blank=False, null=False, max_length=10, choices=STATUS_CHOICES)
     date_of_creation = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     date_of_completion = models.DateTimeField(blank=False, null=False, verbose_name="Дата завершения")
@@ -43,3 +42,6 @@ class Table_com(models.Model):
         verbose_name = "Комментарий"
         verbose_name_plural = "Комментарии"
         ordering = ['-date_of_creation']
+
+    def __str__(self):
+        return self.text
